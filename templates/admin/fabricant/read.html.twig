@@ -1,0 +1,31 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+    <div class="wrapper" >
+        <div class="content-wrapper">
+
+            <h1 align="center"> La liste des fabricants </h1>
+
+
+            <table border="2" style="width:100%" class="table" >
+                    <tr bgcolor="#56C596"  align="center" style="color: white">
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th align="center">Editer</th>
+                    </tr>
+                    {% for c in fabricant %}
+                        <tr align="center">
+                            <td>    {{ c.id  }}     </td>
+                            <td>    {{ c.nom }}    </td>
+                            <td>
+                                <a href="{{ path('updatefabadmin',{'id':c.id}) }}"><button class="button bg-gradient-gray">modifier</button> </a>
+                                <a href="{{ path('deletefabadmin',{'id':c.id}) }}"> <button class="button bg-gradient-cyan">supprimer</button></a>
+                            </td>
+                        </tr >
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+    <div class="wrapper" >
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-12">
+                    <h4>Liste des réclamations</h4>
+                    <div class="table-responsive">
+
+                        <script src="{{ asset('js2/jquery.min.js') }}"></script>
+                        <input type="text" id="search" placeholder="Chercher ici...">
+
+                        <table id="mytable" class="table table-bordred table-striped">
+
+                            <thead>
+                            <th>Type</th>
+                            <th>Date reclamation</th>
+                            <th>Description</th>
+                            <th>Justificatif</th>
+
+                            </thead>
+                            <tbody>
+
+                            {% for c in reclamations %}
+                            <tr>
+                                <td>{{ c.type }}</td>
+                                <td>{{ c.date_rec|date('y/m/d') }}</td>
+                                <td>{{ c.description }}</td>
+                                <td><img src="{{ asset('upload/'~c.img~'') }}" width="25px"> </td>
+
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+
+                        </table>
+                        <a href="{{ path('reclamation_liste') }}"><button class="btn btn-outline-secondary left"  >Imprimer</button></a>
+                        <a href="{{ path('statreclamation') }}"><button class="btn btn-outline-secondary left"  >Statistique</button></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+            search_table($(this).val());
+        });
+        function search_table(value){
+            $('#mytable tbody tr').each(function(){
+                var found = 'false';
+                $(this).each(function(){
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                    {
+                        found = 'true';
+                    }
+                });
+                if(found == 'true')
+                {
+                    $(this).show();
+
+                }
+                else
+                {
+                    $(this).hide();
+
+                }
+            });
+        }
+    });
+</script>
+
+{% endblock %}

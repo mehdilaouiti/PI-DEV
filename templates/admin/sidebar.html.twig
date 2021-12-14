@@ -1,0 +1,252 @@
+{% block sidebar %}
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 sticky">
+        <!-- Brand Logo -->
+        <a href="{{ path('home') }}" class="brand-link">
+            <span class="brand-text font-weight-light">Para'dise - Dashboard</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Gestion des Utilisateurs
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('admin_user_index') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des Utilisateur</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('admin_user_new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter Un utilisateur</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('stat') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Statistique User</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Gestion des Livraisons
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('affiche')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des livraisons</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('add')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter une livraisons</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('livraison_liste')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Imprimer livraisons</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('livraisonstat') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Statistique Livraison</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-truck"></i>
+                            <p>
+                                Gestion des Livreurs
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('ajout')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter Un livreur</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('read')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des livreurs</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-receipt"></i>
+                            <p>
+                                Gestion des Commandes
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('comman') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des commandes</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tag"></i>
+                            <p>
+                                Gestion des articles
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('readartadmin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des articles</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('createartadmin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter un article</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-layer-group"></i>
+                            <p>
+                                Gestion des catégories
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('readcatadmin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des categories</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('createcatadmin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter une categorie</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-hospital-user"></i>
+                            <p>
+                                Gestion des Fabricants
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('readfabadmin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des fabricants</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('createfabadmin') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter un fabricant</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-percent"></i>
+                            <p>
+                                Gestion des Promotions
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('promotion') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des promotions</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('new') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Ajouter une promotion</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview menu-closed" >
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-bullhorn"></i>
+                            <p>
+                                Gestion des Réclamations
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ path('afficherreclamation') }}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Liste des réclamations</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+
+
+<div class="wrapper" >
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-outline">
+                        <div class="card-header">
+                            <br>
+                            <div class="card-body pad">
+                                {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+                                {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                                {{ form_errors(form) }}
+                                <div class="form-group">
+                                    {{ form_label(form.nompromotion,'Nom de la promotion') }}
+                                    {{ form_widget(form.nompromotion) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.remise,'Remise de la promotion') }}
+                                    {{ form_widget(form.remise) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.description,'Description de la promotion') }}
+                                    {{ form_widget(form.description) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.img,'Inserer une image de la promotion') }}
+                                    {{ form_widget(form.img) }}
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}

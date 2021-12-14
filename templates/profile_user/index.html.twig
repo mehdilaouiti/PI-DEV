@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if app.user.genre == 'Homme' %}
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                                {% endif %}
+
+                                {% if app.user.genre == 'Femme' %}
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="{{asset('images/women.png')}}" alt="Admin" class="rounded-circle" width="150">
+                                    {% endif %}
+
+                                    <div class="mt-3">
+                                        <h4>{{app.user.name}}</h4>
+                                        <a href="{{ path('update_user_profile' ,{'id':app.user.id})}}">
+                                        <button class="btn btn-primary">
+                                                Modifier profile</button></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0"> Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <td>{{ app.user.name }}</td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">genre</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <td>{{ app.user.genre }}</td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Phone</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <td>{{ app.user.phone }}</td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Cin</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <td>{{ app.user.cin }}</td>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Address email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <td>{{ app.user.email}}</td>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}

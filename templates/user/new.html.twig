@@ -1,0 +1,15 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+
+
+<div class="wrapper" >
+    <div class="content-wrapper">
+    <h1>Ajouter un utilisateur</h1>
+
+    {{ include('user/_form.html.twig') }}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+    <div class="wrapper" >
+        <div class="content-wrapper">
+            <h1 align="center"> La liste des articles </h1>
+    <div class="dropdown" >
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Tri
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{ path('trinomasc') }}">TriNom A..Z</a>
+            <a class="dropdown-item" href="{{ path('trinomdesc') }}">TriNom Z..A</a>
+        </div>
+    </div>
+
+        <table   border="2" style="width:100%" class="table"  >
+            <tr align="center" bgcolor="#00fa9a" >
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Categorie</th>
+                <th>Fabricant</th>
+                <th>Image_Article</th>
+                <th align="center">Editer</th>
+            </tr>
+            {% for a in article %}
+                <tr >
+                    <td>    {{ a.id  }}     </td>
+                    <td>    {{ a.nom }}    </td>
+                    <td>    {{ a.description }}    </td>
+                    <td>    {{ a.prix }}    </td>
+                    <td>    {{ a.categorie }}    </td>
+                    <td>    {{ a.fabricant }}    </td>
+                    <td> <img src="{{ asset('upload/'~a.img~'') }}" width="40px" height="40px">      </td>
+                    <td>
+                        <a href="{{ path('updateartadmin',{'id':a.id}) }}"> modifier </a>
+                        <a href="{{ path('deleteartadmin',{'id':a.id}) }}"> supprimer </a>
+                    </td>
+                </tr >
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+
+{% endblock %}

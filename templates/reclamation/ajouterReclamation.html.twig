@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1></h1>
+
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-outline card-info">
+                            <div class="card-header">
+                                <br>
+                                <div class="card-body pad">
+                                    {% form_theme form_reclamation 'bootstrap_3_layout.html.twig' %}
+
+                                    {{ form_start(form_reclamation,{'attr':{'novalidate' : 'novalidate'}}) }}
+                                    {{ form_errors(form_reclamation) }}
+                                    <div class="form-group">
+                                        {{ form_label(form_reclamation.type,'Type') }}
+                                        {{ form_widget(form_reclamation.type) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_label(form_reclamation.description,'Description') }}
+                                        {{ form_widget(form_reclamation.description) }}
+                                    </div>
+
+                                    <div class="form-group">
+                                        {{ form_label(form_reclamation.img,'Justificatif') }}
+                                        {{ form_widget(form_reclamation.img) }}
+                                    </div>
+                                    {{ form_end(form_reclamation) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+{% endblock %}

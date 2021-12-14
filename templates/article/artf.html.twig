@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="product-grid">
+            <div class="product-image">
+                <a href="#" class="image">
+                    <img class="pic-1" src="{{ asset(''~a.img~'') }}">
+                </a>
+                <ul class="product-links">
+                    <li><a href="#" data-tip="j'ajoute au prefere!"><i class="fa fa-heart"></i></a></li>
+                    <li><a href="{{ path('art',{'id':a.id}) }}" data-tip="je decouvre!"><i class="fa fa-eye"></i></a></li>
+                </ul>
+            </div>
+            <div class="product-content">
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                </ul>
+                <h3 class="title"><a href="#">{{ a.nom }}</a></h3>
+                <div class="price"><span></span> {{ a.prix }} DT</div>
+                <a class="add-to-cart" href="#">Ajouter au panier </a>
+            </div>
+        </div>
+    </div>
+</div>

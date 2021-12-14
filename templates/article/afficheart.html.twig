@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="affiche-art">
+                <img src="{{ asset(''~article.img~'') }}">
+            </div>
+
+
+
+        </div>
+        <div class="col-md-6">
+
+            <h1 class="pro-d-title"><strong>{{ article.nom }}</strong></h1>
+            <p class="pt-1">{{ article.description }}</p>
+            <p class="mb-2 text-muted text-uppercase small">{{ article.fabricant }}</p>
+            <p><span class="our_price_display">{{ article.prix }} DT </span></p>
+            <button id="add-to-cart" onclick="add({{ article.id }})" class="btn">
+                <a >Ajoutez au panier</a>
+            </button><br>
+            <a href="{{ path('art_like',{'id':article.id}) }}" class="js-like" onclick="change()" id="jaime" >
+                {% if app.user and article.isLikedByUser(app.user) %}
+                    <i  onclick="change()" class="fa fa-thumbs-up"></i>
+                {% else %}
+                    <i class="fa fa-thumbs-down"></i>
+                {% endif %}
+                <span class="js-likes">{{ article.likes |length }}</span>
+                <span class="js-label">j'aime</span>
+            </a>
+        </div>
+    </div>
+
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <script>
+            function onClickBtnLike(event)
+            {
+            event.preventDefault();
+            const url = this.href;
+            const spanCount = this.querySelector('span.js-likes');
+            const icone= this.querySelector('i');
+
+            axios.get(url).then(function(response)
+            {
+            console.log(response);
+            spanCount.textContent = response.data.likes;
+            if(icone.classList.contains('fa-thumbs-up')) {
+            icone.classList.replace('fa-thumbs-up', 'fa-thumbs-down');
+            }else {
+            icone.classList.replace('fa-thumbs-down', 'fa-thumbs-up');
+
+            }
+
+            })
+            }
+            document.querySelectorAll('a.js-like').forEach(function(link)
+            {
+             link.addEventListener('click',onClickBtnLike);
+            })
+
+        </script>
+        <script>
+            function change(){
+                {% if app.user and article.isLikedByUser(app.user) %}
+                $('#jaime').empty();
+                $('#jaime').append("<i class='fa fa-thumbs-up' onclick='change()'>{{ article.likes |length }}jaime</i>");
+                {% else %}
+                $('#jaime').empty();
+                $('#jaime').append("<i class='fa fa-thumbs-down' onclick='change()'>{{ article.likes |length }}jaime</i>");
+                {% endif %}
+            }
+        </script>
+
+
+
+
+
+
+    {% endblock %}

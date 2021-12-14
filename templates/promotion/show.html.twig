@@ -1,0 +1,58 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+<div class="wrapper" style="padding-top: 60px">
+
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <strong>Nom de la promotion : </strong>
+                        {{ promotion.nompromotion }}</h3>
+                </div>
+                <div class="card-body">
+                    <div> <p>
+                            <strong> Remise de la promotion : </strong>
+                            {{ promotion.remise }}
+                        </p>
+                    </div><br>
+                    <div> <p>
+                            <strong> Description de la promotion : </strong>
+                            {{ promotion.description }}
+                        </p>
+                    </div><br>
+                    <div> <p>
+                            <strong> Image de la promotion : </strong>
+                            <img src="{{ asset(''~promotion.img~'') }}"  >
+                        </p>
+                    </div><br>
+                    <div> <p>
+                            <strong> Articles de la promotion : </strong><br>
+
+
+
+                            {% for promotion in promotion.articles %}
+                                {{ promotion.id }} <br>
+                            {% endfor %}
+
+
+                        </p>
+                    </div><br>
+{#
+            <div> <p>
+        <strong> Articles de la promotion : </strong>
+            {{ promotion.articles }}
+                        </p> #}
+                    </div><br>
+                </div>
+
+        </section>
+
+
+
+
+    </div>
+</div>
+{% endblock %}

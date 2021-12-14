@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<br>
+            <center>
+                <img src="{{ asset(''~promotion.img~'') }}">
+            </center>
+<br>
+    <section class="shop-newsletter section">
+    <div class="container">
+    <div class="inner-top">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-12">
+                <!-- Start Newsletter Inner -->
+                <div class="inner">
+                    <h4>{{ promotion.nompromotion }}</h4>
+                    <p>{{ promotion.description }}</p>
+                </div>
+                <!-- End Newsletter Inner -->
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="section-title">
+                <h2>Les produits de la promtion</h2>
+            </div>
+        </div>
+    </div>
+
+<style>.aa{
+        text-decoration:line-through;
+    }</style>
+
+    <div class="row">
+        <center>
+        <div class="col-md-9">
+
+          <div class="grid">
+
+          {% for p in promotion.articles %}
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="product-grid">
+                        <div class="product-image">
+                            <a href="#" class="image">
+                                <img class="pic-1" src="{{ asset(''~p.img~'') }}">
+                            </a>
+
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a>{{ p.nom }}</a></h3>
+                            <div class="aa"> {{ p.prix }} DT</div>
+                            <div class="price"> {{ p.prix - (p.prix * promotion.remise) }} DT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+            </div>
+
+        </div>
+        </center>
+    </div>
+
+<br>
+{% endblock %}

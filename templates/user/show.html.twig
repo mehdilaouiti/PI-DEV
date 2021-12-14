@@ -1,0 +1,61 @@
+{% extends 'admin/admin.html.twig' %}
+
+
+
+{% block body %}
+<h1>User</h1>
+
+<div class="col-md-8">
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0"> Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <td>{{ app.user.name }}</td>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">genre</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <td>{{ app.user.genre }}</td>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <td>{{ app.user.phone }}</td>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Cin</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <td>{{ app.user.cin }}</td>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Address email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <td>{{ app.user.email}}</td>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    {{ include('user/_delete_form.html.twig') }}
+    {% endblock %}

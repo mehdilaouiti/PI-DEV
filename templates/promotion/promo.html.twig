@@ -1,0 +1,40 @@
+{% include 'app/nav.html.twig' %}
+
+<!-- Slider Area -->
+<section class="hero-slider">
+    <!-- Single Slider -->
+    <div class="single-slider">
+        <div class="container">
+            <div class="row no-gutters">
+                <div class="col-lg-9 offset-lg-3 col-12">
+                    <div class="text-inner">
+                        <div class="row">
+                            <div class="col-lg-7 col-12">
+                                <div class="hero-text">
+                                    {% for c in promotion %}
+                                        <h1><span>PLUS QUE 50% REMISE </span>{{ c.nompromotion }}</h1>
+                                        <h4>{{ c.description }} </h4>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="section-title">
+                                                    <h2>Les Articles de la Promotion</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Single Slider -->
+</section>
+<!--/ End Slider Area -->
+
+
+{% include 'app/footer.html.twig' %}

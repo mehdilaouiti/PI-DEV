@@ -1,0 +1,115 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Commande</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Acceuil</a>
+                            <span>Commande</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                </div>
+            </div>
+            <div class="checkout__form">
+                <h4>Détails de la Commande</h4>
+
+                {{ form_start(form,{attr: {novalidate: 'novalidate'}}) }}
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    {{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
+
+                                </div>
+                            </div>
+                            <div class="checkout__input">
+                                {{ form_row(form.prenom,{'attr': {'class': 'form-control'}}) }}
+
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+
+                            {{ form_row(form.adresse,{'attr': {'class': 'form-control' } }) }}
+                        </div>
+                        <div class="checkout__input">
+                            {{ form_row(form.descriptionAdresse,{'attr': {'class': 'form-control'}}) }}
+
+                        </div>
+                        <div class="checkout__input">
+                            {# input autocomplete #}
+                            {{ form_row(form.gouvernorat,{'attr': {'class': 'form-control'}}) }}
+                            {# <div id="error">
+                                {% if errors is defined %}
+
+                                    {% for error in errors %}
+                                        {% if error.propertyPath == "gouvernorat" %}
+                                            {{ error.message }}
+                                        {% endif %}
+                                    {% endfor %}
+
+
+                                {% endif %}
+                            </div> #}
+                        </div>
+
+                        <div class="checkout__input">
+
+                            {{ form_row(form.codePostal,{'attr': {'class': 'form-group form-control'}}) }}
+                            {#   <div id="error">
+                                {% if errors is defined %}
+
+                                    {% for error in errors %}
+                                        {% if error.propertyPath == "codePostal" %}
+                                            {{ error.message }}
+                                        {% endif %}
+                                    {% endfor %}
+
+
+                                {% endif %}
+                            </div>#}
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+
+                                    {{ form_row(form.numeroTelephone,{'attr': {'class': 'form-control',}}) }}
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Adresse mail<span></span></p>
+                                    <input id="email" name="email" type="text"  >
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+
+{% endblock %}

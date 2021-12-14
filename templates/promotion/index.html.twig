@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .azerty{
+        width: 600;
+        height: 370;
+    }
+</style>
+
+    <section class="midium-banner">
+        <div class="container">
+            <div class="row">
+                {% for c in promotion %}
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="single-banner">
+
+                        <div class="azerty">
+                        <img  src="{{ asset(''~c.img~'') }}">
+                        </div>
+                        <div class="content">
+                            <h3>{{ c.nompromotion }}</h3>
+                            <a href="{{ path('showpromo', {'id': c.id}) }}">Voir la promotion</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <br>
+{% endblock %}

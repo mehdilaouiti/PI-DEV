@@ -1,0 +1,83 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+
+
+    <div class="wrapper" >
+    <div class="content-wrapper">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="section-title">
+                                <h2 align="center">Liste des promtions</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <form  method="post" action="{{ path ('recherchepromo') }}" class="form-inline ml-3">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar"  type="text" name="search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit" value="Recherche">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-sm-4">
+                        <a href="{{ path('listtriepromo') }}"><button class="btn btn-outline-secondary d-flex justify-content-end mb-2"  >TriParRemise</button></a>
+                    </div>
+                </div>
+                    <div class="table-responsive">
+
+
+                        <table id="mytable" class="table table-bordred table-striped">
+
+                            <thead>
+                            <th>ID Promotion</th>
+                            <th>Nom du promotion</th>
+                            <th>Remise</th>
+                            <th>Description</th>
+                            <th>Afficher</th>
+                            <th>Modifier</th>
+                            <th>Supprimer</th>
+                            <th>Rappel</th>
+                            </thead>
+                            <tbody>
+                        {% for promo in promotion %}
+                            <tr>
+                                <td>{{ promo.id }}</td>
+                                <td>{{ promo.nompromotion }}</td>
+                                <td>{{ promo.remise }}</td>
+                                <td>{{ promo.description }}</td>
+                                <td><a href="{{ path('promo', {'id': promo.id}) }}"> <button class="btn btn-outline-primary">Afficher</button></a></td>
+                                <td><a href="{{ path('u', {'id': promo.id}) }}"> <button class="btn btn-outline-warning"  >Modifier</button></a></td>
+                                <td><a href="{{path ('d', {'id':promo.id} ) }}"> <button class="btn btn-outline-danger" onclick="return confirm('Voulez-vous vraiment supprimer cette promotion ?')">Supprimer</button></a></td>
+                                <td><a href="{{path ('rappel', {'id':promo.id} ) }}"> <button class="btn btn-outline-success" onclick="return confirm('Voulez-vous vraiment envoyer un mail de rappel de cette promotion vers tous les utilisateurs ?')">Rappel</button></a></td>
+                            </tr>
+                        {% endfor %}
+                            </tbody>
+
+                        </table>
+                        <div class="mt-4">
+                            {{ knp_pagination_render(promotion) }}
+                        </div>
+                        <a href="{{ path('promotion_liste') }}"><button class="btn btn-outline-secondary left"  >Imprimer</button></a>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    </div>
+
+
+{% endblock %}

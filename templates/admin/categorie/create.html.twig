@@ -1,0 +1,30 @@
+{% include 'admin/admin.html.twig' %}
+{% include 'admin/navbar.html.twig' %}
+{% include 'admin/sidebar.html.twig' %}
+{% block body %}
+
+
+    <div class="wrapper" >
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 align="center">Ajouter une categorie </h1>
+                    <div class="card card-outline card-info">
+                        <div class="card-header">
+                            <br>
+                            <div class="card-body pad">
+
+                                {{ form (form,{'attr':{'novalidate' : 'novalidate'}}) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+{% endblock %}
